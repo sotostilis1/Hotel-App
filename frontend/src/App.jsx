@@ -6,7 +6,7 @@ import HotelDetails from "./components/HotelDetails";
 import CustomerRegistration from "./components/CustomerRegistration";
 import axios from "axios";
 import Profile from "./components/Profile";
-
+import ReservationsPage from "./components/ReservationsPage"
 export default function App() {
   const [user, setUser] = useState(null); // Store the user data
   const [hotels, setHotels] = useState([]); // Store the fetched hotels
@@ -39,6 +39,7 @@ export default function App() {
         <Route path="/hotels/:id" element={<HotelDetails user={user} />} />
         <Route path="/customer_registration" element={<CustomerRegistration />} />
         <Route path="/profile" element={<Profile user={user} />} />
+        <Route path="/admin" element={<ReservationsPage/>}></Route>
       </Routes>
     </Router>
   );

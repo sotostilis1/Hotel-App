@@ -23,7 +23,7 @@ const Navbar = ({ user, setUser }) => {
   };
 
   return (
-    <div className="w-full fixed top-0 z-50 bg-white shadow-md h-[50px] flex items-center"> {/* Increased height */}
+    <div className="w-full fixed top-0 z-50 bg-white shadow-md h-[50px] flex items-center">
       <div className="flex justify-between items-center w-full md:max-w-[1240px] m-auto px-4">
         {/* Left Section: Mobile Menu Button */}
         <div className="flex items-center">
@@ -36,6 +36,14 @@ const Navbar = ({ user, setUser }) => {
           >
             Home
           </Link>
+          {user?.role === "admin" && (
+            <Link
+              to="/admin"
+              className="text-black text-lg font-medium cursor-pointer hidden sm:block ml-4"
+            >
+              Admin Page
+            </Link>
+          )}
         </div>
 
         {/* Mobile Dropdown Menu */}
@@ -45,6 +53,11 @@ const Navbar = ({ user, setUser }) => {
               <li className="cursor-pointer mb-2">
                 <Link to="/hotels">Home</Link>
               </li>
+              {user?.role === "admin" && (
+                <li className="cursor-pointer mb-2">
+                  <Link to="/admin">Admin Page</Link>
+                </li>
+              )}
               {!user && (
                 <li className="cursor-pointer mb-2">
                   <Link to="/login">Login</Link>
@@ -109,6 +122,3 @@ const Navbar = ({ user, setUser }) => {
 };
 
 export default Navbar;
-
-
-
